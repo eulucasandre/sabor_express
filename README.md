@@ -1,63 +1,121 @@
-# sabor_express
-Projeto elaborado durante o curso de ''Python: crie sua primeira aplicação'' da Alura, utilizando conceitos básicos da linguagem de programação.
+# **Sabor Express 🍴**
 
-**1. Estrutura do Programa**
-Arquitetura Modular
-O código utiliza funções para encapsular comportamentos específicos, como exibir menus, cadastrar restaurantes ou alternar estados. Isso promove organização e reusabilidade.
+Este é um programa interativo em Python para gerenciar uma lista de restaurantes. Ele permite cadastrar, listar e alterar o estado de restaurantes de forma simples, utilizando o terminal.
 
-Execução Condicional
-A linha if __name__ == '__main__': define o ponto de entrada do programa, garantindo que a função main() seja executada apenas quando o arquivo for executado diretamente, e não quando importado como módulo.
+---
 
-**2. Manipulação de Dados**
-Lista de Dicionários
-Os restaurantes são armazenados como uma lista de dicionários, onde cada dicionário contém as informações de um restaurante:
+## **📋 Funcionalidades**
+- Exibir o nome estilizado do programa.
+- Menu interativo com opções de:
+  - **Cadastrar Restaurante**: Adicionar novos restaurantes à lista.
+  - **Listar Restaurantes**: Veja os restaurantes cadastrados com nome, categoria e status.
+  - **Alternar Estado**: Ativar ou desativar um restaurante.
+  - **Sair**: Finalizar o programa.
 
+---
+
+## **📂 Estrutura do Código**
+
+### **1. Organização Modular**
+O programa é dividido em funções específicas, como:
+- `cadastrar_novo_restaurante()`: Adiciona um novo restaurante.
+- `listar_restaurantes()`: Exibe os restaurantes cadastrados.
+- `alternar_estado_restaurante()`: Alterna o estado de ativação dos restaurantes.
+- `main()`: Função principal que inicializa o programa.
+
+### **2. Lista de Dicionários**
+Os restaurantes são armazenados como uma lista de dicionários:
+```python
 restaurantes = [{'nome': 'Hizaki','categoria':'Japonesa', 'ativo':False}, ...]
-Isso facilita a organização e o acesso aos dados usando chaves, como restaurante['nome'].
+```
 
-Métodos de Lista
-append: Adiciona um novo restaurante à lista.
-Iteração com for: Usada para percorrer os elementos da lista e processá-los.
+### **3. Funcionalidades Adicionais**
+- Uso do módulo `os` para limpar a tela com `os.system('clear')`.
+- Tratamento de exceções para entradas inválidas com `try-except`.
 
-**3. Estruturas de Controle**
-Condições e Loops
-Condicionais if-elif-else são usadas para determinar a ação baseada na opção escolhida pelo usuário.
-for é usado para iterar pelos elementos da lista e verificar ou alterar estados.
-Tratamento de Exceções
-A função escolher_opcoes() utiliza um bloco try-except para capturar erros, como entrada de valores inválidos, evitando que o programa seja encerrado abruptamente.
+---
 
-**4. Interação com o Usuário**
-Entrada e Saída de Dados
-Funções como input permitem que o usuário insira informações.
-print exibe mensagens, menus e resultados no console.
-Interface Simples
-O programa exibe menus com opções numeradas e solicita ações ao usuário, facilitando a navegação.
+## **🛠️ Tecnologias Utilizadas**
+- **Python 3.9+**
+  - Manipulação de listas e dicionários.
+  - Entrada/saída via terminal.
+  - Módulo `os` para interação com o sistema operacional.
 
-**5. Organização do Código**
-Docstrings
-As funções possuem docstrings (comentários de documentação), explicando seus propósitos, entradas e saídas. Por exemplo:
+---
 
-'''Exibe as opções disponíveis no programa'''
-Funções Utilitárias
-Algumas funções, como exibir_subtitulo, melhoram a organização e a estética do programa, tornando o código mais legível e o menu mais amigável.
+## **📖 Documentação das Funções**
 
-**6. Sistema Operacional**
-Uso do Módulo os
-O programa usa os.system('clear') para limpar a tela, criando uma experiência mais fluida ao usuário. Este comando é específico para sistemas baseados em UNIX (Linux/MacOS) e pode precisar de ajustes para Windows (ex.: os.system('cls')).
+### `exibir_nome_do_programa()`
+Exibe o nome do programa de forma estilizada no terminal.
 
-**7. Boas Práticas no Código**
-Clareza
-Os nomes das funções são descritivos e autoexplicativos, facilitando a leitura e manutenção.
+### `exibir_opcoes()`
+Mostra as opções do menu interativo.
 
-Modularidade
-Cada funcionalidade é isolada em sua própria função, o que torna o código mais fácil de depurar e expandir.
+### `cadastrar_novo_restaurante()`
+- **Entrada:** Nome e categoria do restaurante.
+- **Saída:** Adiciona um novo restaurante à lista e exibe uma mensagem de sucesso.
 
-**8. Pontos de Melhoria**
-Validação de Entradas: Adicionar verificações para garantir que o usuário insira dados válidos.
-Persistência de Dados: Incorporar um sistema de armazenamento (ex.: arquivo ou banco de dados) para salvar os restaurantes entre execuções.
-Compatibilidade de Sistema: Substituir os.system('clear') por uma solução multiplataforma.
+### `listar_restaurantes()`
+- **Saída:** Exibe os restaurantes cadastrados com nome, categoria e estado (ativado/desativado).
 
-**Como Executar?**
-Certifique-se de ter o Python instalado.
-- Execute o programa no terminal: python nome_do_arquivo.py
-- Siga as instruções exibidas no menu interativo.
+### `alternar_estado_restaurante()`
+- **Entrada:** Nome do restaurante.
+- **Saída:** Alterna o estado (ativado/desativado) do restaurante correspondente.
+
+### `escolher_opcoes()`
+Gerencia a escolha de opções pelo usuário e redireciona para as funções correspondentes.
+
+### `voltar_ao_menu_principal()`
+Retorna ao menu principal após a execução de uma funcionalidade.
+
+---
+
+## **💡 Pontos de Melhoria**
+- **Persistência de Dados:** Usar arquivos (ex.: JSON) ou banco de dados para salvar os restaurantes.
+- **Compatibilidade:** Substituir `os.system('clear')` por uma solução multiplataforma (visto que o sistema utilizado para a elaboração deste projeto foi o Linux Ubuntu).
+- **Validação de Entradas:** Garantir que nomes e categorias não sejam deixados em branco.
+
+---
+
+## **🚀 Como Executar**
+1. Certifique-se de ter o Python 3.9 ou superior instalado.
+2. Clone ou baixe o repositório.
+3. Execute o programa no terminal:
+   ```bash
+   python nome_do_arquivo.py
+   ```
+4. Siga as instruções no menu interativo.
+
+---
+
+## **🔧 Exemplos de Uso**
+
+### **Cadastrar Restaurante**
+```
+Escolha uma opção: 1
+Digite o nome do restaurante que deseja cadastrar: Marmitex da Maria
+Digite o nome da categoria do restaurante Marmitex da Maria: Brasileira
+O restaurante Marmitex da Maria foi cadastrado com sucesso!
+```
+
+### **Listar Restaurantes**
+```
+Escolha uma opção: 2
+Nome do restaurante       | Categoria           | Status
+- Hizaki                  | Japonesa           | desativado
+- Uliveto                 | Italiana           | ativado
+```
+
+### **Alternar Estado**
+```
+Escolha uma opção: 3
+Digite o nome do restaurante que deseja alternar o estado: Uliveto
+O restaurante Uliveto foi desativado com sucesso!
+```
+
+---
+
+## **📄 Licença**
+Este projeto é livre para uso e modificação. Sinta-se à vontade para contribuir! 😊
+
+---
